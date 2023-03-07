@@ -41,7 +41,11 @@ function Navbar(props) {
       <Box bg={useColorModeValue("gray.100", "gray.900")} px={4} py={3}>
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <IconButton
-            size={"md"}
+            display="flex"
+            aliginItems="center"
+            size={"xl"}
+            fontSize="40px"
+            border="1px solid"
             icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
             aria-label={"Open Menu"}
             display={{ md: "none" }}

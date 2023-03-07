@@ -12,6 +12,41 @@ import {
 } from "@chakra-ui/react";
 import { AiFillLinkedin } from "react-icons/ai";
 
+const data = [
+  {
+    title: "Title 1",
+    fields: [
+      { label: "Field 1", value: "Value 1" },
+      { label: "Field 2", value: "Value 2" },
+      { label: "Field 3", value: "Value 3" },
+    ],
+  },
+  {
+    title: "Title 2",
+    fields: [
+      { label: "Field 4", value: "Value 4" },
+      { label: "Field 5", value: "Value 5" },
+    ],
+  },
+  {
+    title: "Title 3",
+    fields: [
+      { label: "Field 6", value: "Value 6" },
+      { label: "Field 7", value: "Value 7" },
+      { label: "Field 8", value: "Value 8" },
+      { label: "Field 9", value: "Value 9" },
+    ],
+  },
+  {
+    title: "Title 4",
+    fields: [
+      { label: "Field 6", value: "Value 6" },
+      { label: "Field 7", value: "Value 7" },
+      { label: "Field 8", value: "Value 8" },
+      { label: "Field 9", value: "Value 9" },
+    ],
+  },
+];
 const ListHeader = ({ children }) => {
   return (
     <Text fontWeight={"500"} fontSize={"lg"} mb={2}>
@@ -19,17 +54,18 @@ const ListHeader = ({ children }) => {
     </Text>
   );
 };
+
 function Footer(props) {
   return (
     <>
-      <Box bg={useColorModeValue("gray.100", "gray.900")}>
+      <Box bg={useColorModeValue("black")}>
         <Container as={Stack} maxW={"8xl"} py={3}>
           <SimpleGrid
             templateColumns={{ sm: "1fr 1fr", md: "2fr 1fr 1fr 1fr 1fr" }}
             spacing={8}
           >
             <Stack spacing={6}>
-              <Box>
+              <Box color="white">
                 <Image
                   height={"55px"}
                   src="https://www.rittzaccessories.com/assets/images/rittz_accessories_logo.png"
@@ -47,15 +83,20 @@ function Footer(props) {
                 ></iframe>
               </Text>
             </Stack>
-            <Stack align={"flex-start"}>
-              <ListHeader>Product</ListHeader>
-              <Link href={"#"}>Overview</Link>
-              <Link href={"#"}>Features</Link>
-              <Link href={"#"}>Tutorials</Link>
-              <Link href={"#"}>Pricing</Link>
-              <Link href={"#"}>Releases</Link>
-            </Stack>
-            <Stack align={"flex-start"}>
+
+            {data.map((elem) => (
+              <Stack align={"flex-start"} key={elem.title} color="white">
+                <ListHeader>{elem.title}</ListHeader>
+                {elem.fields.map((item) => (
+                  <Box key={item.lable}>
+                    <Link href={"#"}>{item.lable}</Link>
+                    {item.value}
+                  </Box>
+                ))}
+              </Stack>
+            ))}
+
+            {/* <Stack align={"flex-start"}>
               <ListHeader>Company</ListHeader>
               <Link href={"#"}>About</Link>
               <Link href={"#"}>Press</Link>
@@ -78,30 +119,38 @@ function Footer(props) {
               <Link href={"#"}>Dribbble</Link>
               <Link href={"#"}>Instagram</Link>
               <Link href={"#"}>LinkedIn</Link>
-            </Stack>
+            </Stack> */}
           </SimpleGrid>
         </Container>
       </Box>
       <Box
-        borderColor={useColorModeValue("black")}
+        borderColor={useColorModeValue("white")}
+        backgroundColor="black"
         borderTopWidth={1}
         aliginItems="center"
       >
-        <SimpleGrid columns={2} spacingX="40px" spacingY="20px">
+        <SimpleGrid
+          columns={2}
+          spacingX="40px"
+          spacingY="20px"
+          width="90%"
+          display="flex"
+          justifyContent="center"
+        >
           <Box>
-            <Text>
+            <Text color="white">
               @{new Date().getFullYear()}2022 Rittz Accessories. All rights
               reserved. Designed & Developed by Rittz Digital
             </Text>
           </Box>
-          <Box display="flex" justifyContent="space-between">
-            <Box bg="tomato" height="80px" fontSize={"30px"}>
+          <Box display="flex" justifyContent="flex-end">
+            <Box fontSize={"30px"} color="white">
               <AiFillLinkedin />
             </Box>
-            <Box bg="tomato" height="80px" fontSize={"30px"}>
+            <Box fontSize={"30px"} color="white">
               <AiFillLinkedin />
             </Box>
-            <Box bg="tomato" height="80px" fontSize={"30px"}>
+            <Box fontSize={"30px"} color="white">
               <AiFillLinkedin />
             </Box>
           </Box>
