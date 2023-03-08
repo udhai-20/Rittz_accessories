@@ -11,20 +11,54 @@ import {
 } from "@chakra-ui/react";
 import Features from "../../Components/Features/Features";
 import { InfoOutlineIcon } from "@chakra-ui/icons";
+import {} from "./Home.css";
+import Heading from "../../Components/Heading/Heading";
+const items = [
+  <img
+    className="item"
+    width={"100%"}
+    data-value="1"
+    src="https://www.rittzaccessories.com/assets/images/premium_designs_home.jpg"
+  />,
 
+  <img
+    className="item"
+    width={"100%"}
+    data-value="2"
+    src="https://www.rittzaccessories.com/assets/images/accessories_1.jpg"
+  />,
+  <img
+    className="item"
+    width={"100%"}
+    data-value="3"
+    src="https://www.rittzaccessories.com/assets/images/manufactured_%20perfection_home.jpg"
+  />,
+  <img
+    className="item"
+    width={"100%"}
+    data-value="4"
+    src="https://www.rittzaccessories.com/assets/images/textures.jpg"
+  />,
+];
+
+const data = [
+  {
+    title: "Design",
+    img: "",
+    desc: "elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
+  },
+];
 function Home(props) {
   return (
     <>
       {/* //bannersection */}
       <Box>
-        <Banner />
+        <Banner item={items} />
       </Box>
       {/* Our Works Section */}
       <Box className="ourwork-Wrapper" my={"15px"}>
         <Container maxW={"8xl"}>
-          <Text className="Headings" p={"0"} textAlign={"left"}>
-            What we do
-          </Text>
+          <Heading title={"What we do"} />
           <Box marginTop={"30px"} p={4}>
             <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
               <Features
@@ -120,6 +154,30 @@ function Home(props) {
                 }
               />
             </SimpleGrid>
+          </Box>
+        </Container>
+      </Box>
+      {/* supply chain soluction */}
+      <Box className="Supply-chain-solutions">
+        <Container maxW={"8xl"}>
+          <Box borderRadius={"5px"} height={"50px"} bg={"black"} mb={4} mt={4}>
+            <Text
+              className="subdivision"
+              display={"flex"}
+              justifyContent={"center"}
+              color={"white"}
+              fontSize={"xl"}
+            >
+              We offers supply chain solutions
+            </Text>
+            <Box>
+              <Text>Design</Text>
+              <Image src="https://www.rittzaccessories.com/assets/images/Design_step.png" />
+              <Text>
+                your unique designs manufactured precise in quality leather
+                unmatched
+              </Text>
+            </Box>
           </Box>
         </Container>
       </Box>

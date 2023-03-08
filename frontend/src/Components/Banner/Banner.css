@@ -11,18 +11,3 @@
 .alice-carousel__play-btn-wrapper {
     display: none;
 }
-
-.Headings {
-    position: relative;
-    display: inline-block;
-    font-size: 30px;
-}
-
-.Headings:before {
-    content: "";
-    position: absolute;
-    width: 70%;
-    bottom: 0;
-    left: 1%;
-    border-bottom: 4px solid red;
-}
