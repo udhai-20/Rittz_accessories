@@ -44,11 +44,34 @@ const items = [
 const data = [
   {
     title: "Design",
-    img: "",
+    img: "https://www.rittzaccessories.com/assets/images/premium_designs_home.jpg",
+    desc: "elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
+  },
+  {
+    title: "Design-2",
+    img: "https://www.rittzaccessories.com/assets/images/premium_designs_home.jpg",
+    desc: "elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
+  },
+  {
+    title: "Design-3",
+    img: "https://www.rittzaccessories.com/assets/images/premium_designs_home.jpg",
     desc: "elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
   },
 ];
+const handleDragStart = (e) => e.preventDefault();
 function Home(props) {
+  const contents = data.map((c) => (
+    <div className="carouselItem">
+      <img
+        className="carouselItem__img"
+        src={c.img}
+        alt={c?.title}
+        onDragStart={handleDragStart}
+      />
+      <b className="carouselItem__txt">{c?.title}</b>
+      <b className="carouselItem__txt">{c?.desc}</b>
+    </div>
+  ));
   return (
     <>
       {/* //bannersection */}
@@ -170,14 +193,19 @@ function Home(props) {
             >
               We offers supply chain solutions
             </Text>
-            <Box>
-              <Text>Design</Text>
-              <Image src="https://www.rittzaccessories.com/assets/images/Design_step.png" />
-              <Text>
-                your unique designs manufactured precise in quality leather
-                unmatched
-              </Text>
-            </Box>
+          </Box>
+          {/* <Box>
+            <Text>Design</Text>
+            <Image src="https://www.rittzaccessories.com/assets/images/Design_step.png" />
+            <Text>
+              your unique designs manufactured precise in quality leather
+              unmatched
+            </Text>
+          </Box> */}
+          <Box>
+            <Container maxW={"3xl"} margin={"auto"}>
+              <Banner item={contents} />
+            </Container>
           </Box>
         </Container>
       </Box>
