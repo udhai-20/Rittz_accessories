@@ -1,0 +1,13 @@
+.image_container>img:hover {
+    transform: scale(.9);
+}
+
+.image_container>img {
+    transition: .5s;
+
+}
+
+.product-wrapper {
+    border: 2px solid white;
+    border-radius: 5px;
+}

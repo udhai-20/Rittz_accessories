@@ -1,0 +1,48 @@
+.header-wrapper {
+    /* border: 1px solid red; */
+    padding: 10px;
+    /* height: 50px; */
+    z-index: 1;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inside-header {
+    /* border: 1px solid red; */
+    color: White;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.header_insta {
+    color: #cc2366;
+}
+
+.social_media {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media only screen and (max-width: 465px) {
+    .header-wrapper {
+        padding: 1px;
+        /* height: 100px; */
+    }
+
+    .inside-header {
+        flex-direction: column;
+    }
+
+    .social_media {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+    }
+}

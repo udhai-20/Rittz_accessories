@@ -18,6 +18,7 @@ import {
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon, ChevronDownIcon } from "@chakra-ui/icons";
 import { useNavigate, Link } from "react-router-dom";
+import "./Navbar.css";
 function Navbar(props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const navigate = useNavigate();
@@ -43,7 +44,11 @@ function Navbar(props) {
               isOpen ? (
                 <CloseIcon display={"block"} padding={"2px"} />
               ) : (
-                <HamburgerIcon display={"block"} padding={"2px"} />
+                <HamburgerIcon
+                  display={"block"}
+                  padding={"2px"}
+                  fontSize={"2.8rem"}
+                />
               )
             }
             aria-label={"Open Menu"}
@@ -181,7 +186,8 @@ function Navbar(props) {
               >
                 About
               </Link>
-              <Stack rounded={"md"}>
+
+              <Stack rounded={"md"} className="product_btn">
                 <Menu>
                   <MenuButton>Products</MenuButton>
                   <MenuList>

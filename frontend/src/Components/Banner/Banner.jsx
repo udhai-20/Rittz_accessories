@@ -37,8 +37,8 @@ function Banner({ item }) {
         autoPlay
         autoPlayControls
         autoPlayStrategy="none"
-        autoPlayInterval={1000}
-        animationDuration={1000}
+        autoPlayInterval={2000}
+        animationDuration={2000}
         animationType="fadeout"
         infinite
         touchTracking={false}

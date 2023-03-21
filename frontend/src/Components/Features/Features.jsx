@@ -1,7 +1,7 @@
 import { Flex, Stack, Text } from "@chakra-ui/react";
 import React from "react";
 
-function Features({ title, text, icon }) {
+function Features({ title, text, icon, color }) {
   return (
     <>
       <Stack borderRadius={"20px"} boxShadow={"md"} align={"center"} p={3}>
@@ -9,7 +9,9 @@ function Features({ title, text, icon }) {
           {icon}
         </Flex>
         <Text fontWeight={600}>{title}</Text>
-        <Text color={"gray.600"}>{text}</Text>
+        <Text textAlign={"center"} color={"gray.600"}>
+          {text}
+        </Text>
       </Stack>
     </>
   );

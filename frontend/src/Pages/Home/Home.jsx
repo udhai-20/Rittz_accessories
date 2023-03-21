@@ -11,14 +11,19 @@ import {
 } from "@chakra-ui/react";
 import Features from "../../Components/Features/Features";
 import { InfoOutlineIcon } from "@chakra-ui/icons";
-import {} from "./Home.css";
+import "./Home.css";
 import Heading from "../../Components/Heading/Heading";
+import ProductCard from "../../Components/ProductCard/ProductCard";
+import liveProduct from "../../Components/liveProduct/liveProduct";
+import Marquee from "react-fast-marquee";
+import ProductDetails from "../../Components/liveProduct/ProductDetails";
+import Testimonials from "../../Components/testimonials/Testimonials";
 const items = [
   <img
     className="item"
     width={"100%"}
     data-value="1"
-    src="https://www.rittzaccessories.com/assets/images/premium_designs_home.jpg"
+    src="./Images/wallet_banner.webp"
   />,
 
   <img
@@ -40,11 +45,10 @@ const items = [
     src="https://www.rittzaccessories.com/assets/images/textures.jpg"
   />,
 ];
-
 const data = [
   {
     title: "Design",
-    img: "https://www.rittzaccessories.com/assets/images/premium_designs_home.jpg",
+    img: "./Images/Design_step.png",
     desc: "elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
   },
   {
@@ -58,18 +62,99 @@ const data = [
     desc: "elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
   },
 ];
+const supplyChain = [
+  {
+    title: "Design",
+    img: "./Images/Design_step.png",
+    content:
+      "your unique designs manufactured precise in quality leather unmatched",
+  },
+  {
+    title: "Source",
+    img: "./Images/source_step.png",
+    content:
+      "Prime leather used to create your elite products comes from a premium source of raw materials.",
+  },
+  {
+    title: "Manufacture",
+    img: "./Images/manufacture_step.png",
+    content:
+      "World class factory offering scalable quality production to match your standard",
+  },
+];
+const hotProducts = [
+  {
+    img: "./Images/bag.png",
+    title: "BAG",
+  },
+  {
+    img: "./Images/belt.png",
+    title: "BELT",
+  },
+  {
+    img: "./Images/custom_bag.png",
+    title: "CUSTOME BAG",
+  },
+  {
+    img: "./Images/wallet.png",
+    title: "WALLET",
+  },
+];
+const name = [
+  {
+    name: "test#1",
+  },
+  {
+    name: "test#2",
+  },
+  {
+    name: "test#3",
+  },
+  {
+    name: "test#4",
+  },
+
+  {
+    name: "test#2",
+  },
+  {
+    name: "test#3",
+  },
+  {
+    name: "test#4",
+  },
+];
 const handleDragStart = (e) => e.preventDefault();
 function Home(props) {
+  const check = name.map((el) => {
+    return (
+      <Box key={el.name} width={"100%"}>
+        <ProductDetails
+          icon={
+            <Image
+              src="https://www.rittzaccessories.com/assets/images/idea.png"
+              w={"100%"}
+              h={"100%"}
+            />
+          }
+          title={el.name}
+          text={
+            "Our process starts with experts analyzing the right quality leather and customizing the right material giving life to your ideas"
+          }
+        />
+      </Box>
+    );
+  });
   const contents = data.map((c) => (
     <div className="carouselItem">
       <img
         className="carouselItem__img"
         src={c.img}
-        alt={c?.title}
+        alt={c.title}
         onDragStart={handleDragStart}
       />
-      <b className="carouselItem__txt">{c?.title}</b>
-      <b className="carouselItem__txt">{c?.desc}</b>
+      <b className="carouselItem__txt">{c.title}</b>
+      <b className="carouselItem__txt">{c.desc}</b>
     </div>
   ));
   return (
@@ -194,19 +279,81 @@ function Home(props) {
               We offers supply chain solutions
             </Text>
           </Box>
-          {/* <Box>
-            <Text>Design</Text>
-            <Image src="https://www.rittzaccessories.com/assets/images/Design_step.png" />
-            <Text>
-              your unique designs manufactured precise in quality leather
-              unmatched
-            </Text>
-          </Box> */}
-          <Box>
-            <Container maxW={"3xl"} margin={"auto"}>
-              <Banner item={contents} />
-            </Container>
+          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
+            {supplyChain.map((el) => {
+              return (
+                <Box key={el.title}>
+                  <Features
+                    icon={<Image src={el.img} w={"100%"} h={"100%"} />}
+                    title={el.title}
+                    text={el.content}
+                  />
+                </Box>
+              );
+            })}
+          </SimpleGrid>
+        </Container>
+      </Box>
+
+      {/* hot PRopdpuct */}
+      <Box
+        className="hot-product-wrapper"
+        bg={"black"}
+        py={"18px"}
+        width={"100%"}
+        mt={"10px"}
+        mb={"5px"}
+      >
+        <Container maxW={"8xl"}>
+          <Box className="hot-product-child">
+            <Box>
+              <Text
+                className="subdivision"
+                display={"flex"}
+                justifyContent={"center"}
+                color={"white"}
+                fontSize={"xl"}
+                mt="0"
+              >
+                Hot Products
+              </Text>
+            </Box>
+            <SimpleGrid columns={{ base: 1, md: 4 }} spacing={10}>
+              {hotProducts.map((el) => {
+                return (
+                  <Box key={el.title} mt={"10px"}>
+                    <ProductCard
+                      icon={
+                        <Image
+                          bg={"white"}
+                          src={el.img}
+                          w={"100%"}
+                          h={"100%"}
+                        />
+                      }
+                      title={el.title}
+                    />
+                  </Box>
+                );
+              })}
+            </SimpleGrid>
           </Box>
+        </Container>
+      </Box>
+      <Box mt="25px" mb="25px">
+        <Container maxW={"8xl"}>
+          <Box borderRadius={"5px"} height={"50px"} bg={"black"} mb={4} mt={4}>
+            <Text
+              className="subdivision"
+              display={"flex"}
+              justifyContent={"center"}
+              color={"white"}
+              fontSize={"xl"}
+            >
+              Customer Quotes
+            </Text>
+          </Box>
+          <Testimonials />
         </Container>
       </Box>
     </>
